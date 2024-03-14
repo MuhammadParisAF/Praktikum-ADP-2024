@@ -1,0 +1,27 @@
+#include <iostream>
+using namespace std;
+
+int main(){
+	float r;
+	float π = 3.1415, Volume, Luas_Permukaan;
+	string Nama, BP;
+	
+	Nama = "Muhammad Paris Al-Fajri";
+	BP = "2310432015";
+	
+	cout<<"Nama: "+ Nama <<endl;
+	cout<<"NIM: "+ BP<< endl;
+	cout<<"_____"<<endl;
+	
+	cout<<"Masukkan Jari-jari Bola = "; cin>>r;
+	
+	Volume = (4*π*r*r*r)/(3);
+	Luas_Permukaan = 4*π*(r*r);
+	
+	cout<<"Maka, didapatkan hasil yakni, "<<endl;
+	
+	cout<<"Volume Bola adalah "<<Volume<<" cm^3"<<endl;
+	
+	cout<<"Serta Luas Permukaannya adalah "<<Luas_Permukaan<<" cm^2"<<endl;
+	
+}
