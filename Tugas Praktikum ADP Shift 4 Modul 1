@@ -1,0 +1,31 @@
+#include <iostream>
+#include <math.h>
+using namespace std;
+
+int main() {
+    int n;
+    float mean, ragam, sb, data[n], Jumlah, Jumlah_kuadrat;
+	
+	cout<<"Nama: Muhammad Paris Al-Fajri" <<endl;
+	cout<<"NIM: 2310432015 "<< endl;
+	cout<<"_________________________"<<endl;
+    
+    cout << "Masukkan jumlah data = ";
+    cin >> n;
+
+    for (int i = 0; i < n; i++) {
+        cout << "Masukkan data ke-" << i + 1 << "= ";
+        cin >> data[i];
+        Jumlah = Jumlah + data[i];
+        Jumlah_kuadrat = Jumlah_kuadrat + data[i] * data[i];
+    }
+
+    mean = Jumlah / n;
+    ragam = (Jumlah_kuadrat - ((Jumlah * Jumlah) / n))/ (n-1 );
+    sb = sqrt(ragam);
+
+    cout << "Rata-rata = " << mean << endl;
+    cout << "Ragam = " << ragam << endl;
+    cout << "Simpangan baku = " << sb << endl;
+    
+}
