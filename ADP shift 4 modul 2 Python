@@ -1,0 +1,60 @@
+print("Selamat datang di Sistem Pemesanan Tiket Pesawat")
+print("Bandara Internasional Soekarno-Hatta")
+print("===============================================")
+
+nama = input("Masukkan nama Anda: ")
+umur = input("Masukkan umur Anda: ")
+jk = input("Masukkan jenis kelamin (L/P): ")
+print("_______________________")
+
+print("Pilih tujuan keberangkatan:")
+print("1. Bandara Internasional Minangkabau")
+print("2. Bandara Internasional Kualanamu")
+print("3. Bandara Internasional Sultan Iskandar Muda")
+tujuan = int(input("Masukkan nomor tujuan: "))
+print("_______________________")
+
+print("Pilih Jenis maskapai:")
+print("1. Ekonomi (Harga: Rp 1.500.000)")
+print("2. Bisnis (Harga: Rp 2.000.000)")
+print("3. First class (Harga: Rp 2.500.000)")
+jm = int(input("Masukkan nomor jenis maskapai: "))
+kursi = int(input("Masukkan jumlah kursi yang dipesan: "))
+
+if jm == 1:
+    harga = 1500000
+elif jm == 2:
+    harga = 2000000
+elif jm == 3:
+    harga = 2500000
+else:
+    print("Jenis maskapai tidak valid.")
+    exit()
+
+total = kursi * harga
+if kursi > 3:
+    total *= 0.75
+
+print("_______________________")
+print("Struk Pemesanan:")
+print("Nama:", nama)
+print("Umur:", umur)
+print("Jenis Kelamin:", jk)
+print("Kota Tujuan Keberangkatan:", end=" ")
+if tujuan == 1:
+    print("Bandara Internasional Minangkabau")
+elif tujuan == 2:
+    print("Bandara Internasional Kualanamu")
+elif tujuan == 3:
+    print("Bandara Internasional Sultan Iskandar Muda")
+
+print("Jenis Maskapai:", end=" ")
+if jm == 1:
+    print("Ekonomi")
+elif jm == 2:
+    print("Bisnis")
+elif jm == 3:
+    print("First class")
+
+print("Jumlah Kursi:", kursi, "buah")
+print("Total Harga:", "Rp", total)
