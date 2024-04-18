@@ -1,0 +1,72 @@
+#include <iostream>
+using namespace std;
+int main() {
+    
+    int P[5], Q[5], P1[5], Q1[5], PQ[5];
+    int countP1 = 0, countQ1 = 0, countPQ = 0;
+
+    cout << "Masukkan elemen untuk array P (bilangan bulat 0-9):" << endl;
+    for (int i = 0; i < 5; i++) {
+        cout << "Elemen ke-" << i + 1 << ": ";
+        cin >> P[i];
+        if (P[i] < 0 || P[i] > 9) {
+            cout << "Input tidak valid. Mohon masukkan angka antara 0 dan 9." << endl;
+            i--;
+        }
+    }
+
+    cout << "Masukkan elemen untuk array Q (bilangan bulat 0-9):" << endl;
+    for (int i = 0; i < 5; i++) {
+        cout << "Elemen ke-" << i + 1 << ": ";
+        cin >> Q[i];
+        if (Q[i] < 0 || Q[i] > 9) {
+            cout << "Input tidak valid. Mohon masukkan angka antara 0 dan 9." << endl;
+            i--;
+        }
+    }
+
+    for (int i = 0; i < 5; i++) {
+        bool InQ = false;
+        for (int j = 0; j < 5; j++) {
+            if (P[i] == Q[j]) {
+                InQ = true;
+                PQ[countPQ++] = P[i];
+                break;
+            }
+        }
+        if (!InQ) {
+            P1[countP1++] = P[i];
+        }
+    }
+
+    for (int i = 0; i < 5; i++) {
+        bool InP = false;
+        for (int j = 0; j < 5; j++) {
+            if (Q[i] == P[j]) {
+                InP = true;
+                break;
+            }
+        }
+        if (!InP) {
+            Q1[countQ1++] = Q[i];
+        }
+    }
+
+    cout << "Array hanya di P: ";
+    for (int i = 0; i < countP1; i++) {
+        cout << P1[i] << " ";
+    }
+    cout << endl;
+
+    cout << "Array hanya di Q: ";
+    for (int i = 0; i < countQ1; i++) {
+        cout << Q1[i] << " ";
+    }
+    cout << endl;
+
+    cout << "Array di P dan Q: ";
+    for (int i = 0; i < countPQ; i++) {
+        cout << PQ[i] << " ";
+    }
+    cout << endl;
+}
