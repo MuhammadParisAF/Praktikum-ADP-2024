@@ -1,0 +1,28 @@
+def GLBB(n, hitung):
+    hasil = []
+    for i in range(n):
+        v0, a, t = hitung[i]
+        v1 = v0 + (a * t) 
+        s = v0 * t + 0.5 * a * (t**2)
+        hasil.append((v0, a, t, v1, s))
+    return hasil
+
+n = int(input("Masukkan jumlah kasus: "))
+
+hitung = []
+for i in range(n):
+    print(    ) 
+    print(f"Kasus ke-{i + 1}")
+    v0 = float(input("Masukkan kecepatan awal: "))
+    a = float(input("Masukkan percepatan: "))
+    t = float(input("Masukkan waktu: "))
+    hitung.append((v0, a, t))
+
+print(      ) 
+print("Hasil perhitungan:")
+print("---------------------------------------------------------------------")
+print(f"{'No.':<1} | {'Kecepatan Awal':<1} | {'Percepatan':<1} | {'Waktu':<1} | {'Kecepatan Akhir':<1} | {'Jarak':<1} |")
+print("---------------------------------------------------------------------")
+for i in range(n):
+    v0, a, t, v1, s = GLBB(n, hitung)[i]
+    print(f"{i + 1:<3} | {v0:<14} | {a:<10} | {t:<5} | {v1:<15} | {s:<4} |")
