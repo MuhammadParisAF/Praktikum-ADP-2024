@@ -1,0 +1,56 @@
+def tambah(tgl, ket, jml, dk):
+    with open("uang.txt", "a") as file:
+        file.write(f"{tgl}, {ket}, {jml}, {dk}\n")
+        print("Nambah lagi transaksi baru")
+        print(            )
+
+def hapus(tgl):
+    with open("uang.txt", "r") as file:
+        baris = file.readlines()
+    with open("uang.txt", "w") as file:
+        for i in baris:
+            if i.strip().split(",")[0] != tgl:
+                file.write(i)
+        print("Transaksi tersebut telah lenyap") 
+        print(         )
+        
+def tampilkan():
+    with open("uang.txt", "r") as file:
+        baris = file.readlines()
+        print("Selamat datang pada menu Neraca Saldo anda sehari-hari: ")
+        print("------------------------------------------------------------------------------") 
+        print(f"| {'Tanggal': <15} | {'Keterangan':<20} | {'Jumlah': <15} | {'Jenis':<15} |")
+        print("------------------------------------------------------------------------------") 
+        for i in baris:
+            tgl, ket, jml, dk = i.strip().split(",")
+            print(f"| {tgl:<15} | {ket:<20} | {jml:<15} | {dk:<15} |")
+        print("------------------------------------------------------------------------------")
+    print(             )
+    
+while True:
+    print("Menu:")
+    print("1. Tambah")
+    print("2. Hapus")
+    print("3. Tampilkan")
+    print("4. Keluar")
+    
+    pilih = int(input("Pilih menu (1/2/3/4): "))
+    if pilih == 1:
+        print("Selamat datang dalam menu transaksi sehari-hari")
+        tgl = input("Masukkan Tanggal Transaksi(D/M/Y): ")
+        ket = input("Masukkan Keterangan Transaksi: ")
+        jml = float(input("Masukkan Jumlah Transaksi(Rp): "))
+        dk = input("Masukkan Jenis Transaksi(Pengeluaran/Pemasukan):")     
+        tambah(tgl, ket, jml, dk)
+    elif pilih == 2:
+        print("Hapus data berdasarkan tanggal transaksi")
+        tgl = input("Masukkan Tanggal Transaksi: ")
+        hapus(tgl)
+    elif pilih == 3:
+        tampilkan()
+    elif pilih == 4:
+        print("Selesai, berhemat selalu yaa")
+        print(           )
+    else:
+        print("Cuma 1 sampai 4, ulang!")
+        print(            )   
