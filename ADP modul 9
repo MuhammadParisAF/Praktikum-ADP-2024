@@ -1,0 +1,35 @@
+from termcolor import colored
+
+def kue():
+    bentuk = [
+        "      **                  ",
+        "      ||         ",
+        "      ||                   ",
+        "   @@||||@@          ",
+        "  [[[[[]]]]]    ",
+        "  [[[[[]]]]]    ",
+        " @@@@@@@@@@@@  ",
+        " @@@@@@@@@@@@",
+        "HHHHHHHHHHHHHH",
+        "HHHHHHHHHHHHHH",
+        "HHHHHHHHHHHHHH",
+    ]
+
+    for baris in bentuk:
+        warna = ""
+        for char in baris:
+                if char == "H":
+                    warna += cprint(char, "light_blue", end="")
+                    elif char == "@":
+                        warna += cprint(char, "cyan", end="")
+                        elif char == "]":
+                            warna += cprint(char, "yellow", end="")
+                            elif char == "[":
+                                warna += cprint(char,"green", end="")
+                                elif char == "*":
+                                    warna += cprint(char,"red", end="") 
+                                    else:
+                                        warna += char
+        print(warna)
+
+kue()
